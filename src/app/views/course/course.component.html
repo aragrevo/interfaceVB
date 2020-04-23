@@ -1,0 +1,56 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="#">Course</a></li>
+    <li class="breadcrumb-item active" aria-current="page" [innerText]="course"></li>
+  </ol>
+</nav>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Contenido</a>
+    <ng-template ngbNavContent>
+      <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]=false class="m-4">
+        <ng-template ngbSlide>
+          <div class="">
+            <img src="http://www.meditatecenter.com/howtomeditate/wp-content/uploads/2015/02/video-placeholder.jpg"
+              alt="Random first slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Evaluación</a>
+    <ng-template ngbNavContent>
+      <div class="text-center mt-4">
+        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="100" [(page)]="page"
+          aria-label="Default pagination"></ngb-pagination>
+      </div>
+
+      <div class="card m-4">
+        <div class="card-body">
+          <h5 class="card-title">Pregunta 4</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ullam sit tenetur
+            quaerat, quasi voluptatibus porro optio necessitatibus ipsam possimus magnam amet quam, quisquam, sapiente
+            asperiores cupiditate pariatur molestias tempore?</p>
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Seleccione la opción correcta</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2">
+              <option>Opción 1</option>
+              <option>Opción 2</option>
+              <option>Opción 3</option>
+              <option>Opción 4</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-right mb-4 mr-4">
+        <button class="btn btn-success flex-row-reverse" type="button">Enviar</button>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav"></div>

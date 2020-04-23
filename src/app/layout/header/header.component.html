@@ -1,0 +1,32 @@
+<header class="sticky-top d-none d-md-block mb-3">
+  <nav id="header" class="navbar navbar-expand-md navbar-dark bg-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img src="https://via.placeholder.com/250x45.png?text=logo" class="d-inline-block align-top" alt="logo unad">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/home']">{{getTitle()}}</a>
+        </li>
+        <div ngbDropdown class="d-inline-block" *ngIf="focus">
+          <button class="btn btn-outline-light" id="dropdownBasic1" ngbDropdownToggle>Cursos</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a ngbDropdownItem *ngFor="let course of courses" [routerLink]="['/course', course.path]"
+              routerLinkActive="active">{{course.name}}</a>
+          </div>
+        </div>
+      </ul>
+      <button *ngIf="!focus" class="btn btn-success my-2 my-sm-0" type="button" [routerLink]="['/login']"
+        routerLinkActive="active">Iniciar sesión</button>
+      <button *ngIf="focus" class="btn btn-success my-2 my-sm-0" type="button" [routerLink]="['/login']"
+        routerLinkActive="active">Cerrar sesión</button>
+    </div>
+  </nav>
+</header>
+
+<!-- https://informacion.unad.edu.co/templates/unadgeneral/images/logoUNAD.png -->
